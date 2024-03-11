@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Resource</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            width: 70%;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            margin-bottom: 20px;
+            text-align: center        }
+
+        input[type="text"] {
+            width: 35%;
+            padding: 8px;
+        }
+
+        input[type="submit"] {
+            padding: 8px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Open Resource</h1>
+    <form id="resourceForm">
+        <input type="text" id="resourceInput" placeholder="Enter a resource (e.g., link, article)">
+        <input type="submit" value="Submit">
+    </form>
+    <ul id="resourceList">
+        
+    </ul>
+    <script>
+        document.getElementById("resourceForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            var resourceInput = document.getElementById("resourceInput");
+            var resourceValue = resourceInput.value.trim();
+            if (resourceValue !== "") {
+                resourceInput.value = "";
+                addResourceToList(resourceValue);
+            } else {
+                alert("Please enter a valid resource.");
+            }
+        });
+
+        function addResourceToList(resourceValue) {
+            var resourceList = document.getElementById("resourceList");
+            var li = document.createElement("li");
+            li.textContent = resourceValue;
+            resourceList.appendChild(li);
+        }
+
+    </script>
+</body>
+
+</html>
